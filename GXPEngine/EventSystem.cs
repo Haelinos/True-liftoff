@@ -8,16 +8,16 @@ namespace GXPEngine.GXPEngine
 {
     internal class EventSystem : GameObject
     {
-        public static EventSystem instance;
-        public event Action onClick;
-        public EventSystem()
-        {
-            instance = this;
-        }
+        //public static EventSystem instance;
+        //public event Action onClick;
+        //public EventSystem()
+        //{
+        //    instance = this;
+        //}
 
-        public void Click()
-        {
-            onClick?.Invoke();
-        }
+        //public void Click()
+        //{
+        //    onClick?.Invoke();
+        //}
     }
 }

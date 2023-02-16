@@ -6,3 +6,11 @@ C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\Project Lift Off\GXPEngine\obj\x86
 C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
 C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.exe
 C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.pdb
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\bin\Debug\GXPEngine.exe.config
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\bin\Debug\GXPEngine.exe
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\bin\Debug\GXPEngine.pdb
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.csproj.AssemblyReference.cache
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.csproj.SuggestedBindingRedirects.cache
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.exe
+C:\Users\hznie\OneDrive\Documenten\CMGT\sorry\Project Lift Off\GXPEngine\obj\x86\Debug\GXPEngine.pdb

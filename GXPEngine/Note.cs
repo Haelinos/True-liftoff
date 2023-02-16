@@ -11,17 +11,18 @@ namespace GXPEngine
     public class Note : AnimationSprite
     {
         float speed = 2.5f;
-        MusicDisk musicDisk = new MusicDisk();
+        public MusicDisk musicDisk;
 
         //---------------------------------------------------------------------------------------------------------------------------
         //                                                      Note()
         //---------------------------------------------------------------------------------------------------------------------------
-        public Note() : base("Notes.png", 6, 1)
+        public Note(MusicDisk musicDisk) : base("Notes.png", 6, 1)
         {
             SetOrigin(width / 2, height / 2);
             scale = 5;
             SetCycle(0, 1);
             RandomizeNote();
+            this.musicDisk = musicDisk;
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
@@ -48,19 +49,19 @@ namespace GXPEngine
         private void MoveNoteDown()
         {
             y += speed;
+            Console.WriteLine("x: {0} y: {1}", x, y);
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
         //                                                      CollisionChecker()
         //---------------------------------------------------------------------------------------------------------------------------
-        void OnCollision(GameObject other)
+
+        void CollisionChecker()
         {
-            if (other is MusicDisk)
+            if (DistanceTo(musicDisk) < musicDisk.width/2)
             {
-                Console.WriteLine("is colliding with disk");
-                LateDestroy();
-                EventSystem.instance.onClick += MoveNoteDown;
-            }
+                Console.WriteLine("cumkind");
+            } 
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
