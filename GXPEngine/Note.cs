@@ -1,4 +1,5 @@
-﻿using GXPEngine.GXPEngine;
+﻿
+using GXPEngine.GXPEngine;
 using GXPEngine.Managers;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-    public class Note : AnimationSprite
+    public class Note : Sprite
     {
         float speed = 2.5f;
         public MusicDisk musicDisk;
@@ -16,31 +17,23 @@ namespace GXPEngine
         //---------------------------------------------------------------------------------------------------------------------------
         //                                                      Note()
         //---------------------------------------------------------------------------------------------------------------------------
-        public Note(MusicDisk musicDisk) : base("Notes.png", 6, 1)
+        public Note(MusicDisk musicDisk) : base("sprites\\circle_blue.png")
         {
             SetOrigin(width / 2, height / 2);
-            scale = 5;
-            SetCycle(0, 1);
-            RandomizeNote();
+            scale = 1;
+
             this.musicDisk = musicDisk;
         }
 
-        //---------------------------------------------------------------------------------------------------------------------------
-        //                                                      RandomizeNote()
-        //---------------------------------------------------------------------------------------------------------------------------
-        public void RandomizeNote() 
-        {
-            var posX = new List<int> { 600, 650, 700 };
-            int index = Utils.Random(0, posX.Count);
-            x = (posX[index]);
-        }
 
         //---------------------------------------------------------------------------------------------------------------------------
         //                                                      Update()
         //---------------------------------------------------------------------------------------------------------------------------
         public void Update()
         {
+
             MoveNoteDown();
+            CollisionChecker();
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
@@ -48,8 +41,8 @@ namespace GXPEngine
         //---------------------------------------------------------------------------------------------------------------------------
         private void MoveNoteDown()
         {
+            x = 600;
             y += speed;
-            Console.WriteLine("x: {0} y: {1}", x, y);
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
@@ -58,20 +51,11 @@ namespace GXPEngine
 
         void CollisionChecker()
         {
-            if (DistanceTo(musicDisk) < musicDisk.width/2)
+            if (DistanceTo(musicDisk) < musicDisk.width / 2)
             {
-                Console.WriteLine("cumkind");
-            } 
+                Console.WriteLine("is colliding with musicdisk");
+                LateDestroy();
+            }
         }
-
-        //---------------------------------------------------------------------------------------------------------------------------
-        //                                                      Timer()
-        //---------------------------------------------------------------------------------------------------------------------------
-
-        //void Timer() 
-        //{ 
-        //    Time time 
-        
-        //}
     }
 }

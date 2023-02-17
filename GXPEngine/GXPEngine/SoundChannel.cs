@@ -44,6 +44,14 @@ namespace GXPEngine
 			}
 		}
 
+		public uint Position
+		{
+			get
+			{
+				return _system.GetChannelPosition(_id);
+			}
+		}
+
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="GXPEngine.SoundChannel"/> is mute.
 		/// </summary>

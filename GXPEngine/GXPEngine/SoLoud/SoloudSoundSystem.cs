@@ -66,6 +66,12 @@ namespace GXPEngine.Core
 			return Soloud.Soloud_playEx(_device, id, volume, pan, paused, 0);
 		}
 
+        public override uint GetChannelPosition(uint channelId)
+        {
+            Console.WriteLine("This method is not implemented in Soloud");
+            return 0;
+        }
+
 
         public override float GetChannelFrequency(uint channelId)
         {

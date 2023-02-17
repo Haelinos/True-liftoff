@@ -13,6 +13,7 @@ namespace GXPEngine.Core
         public abstract uint PlaySound(IntPtr id, uint channelId, bool paused);
 		public abstract uint PlaySound (IntPtr id, uint channelId, bool paused, float volume, float pan);
 
+        public abstract uint GetChannelPosition(uint channelId);
         public abstract float GetChannelFrequency(uint channelId);
         public abstract void SetChannelFrequency(uint channelId, float frequency);
         public abstract float GetChannelPan(uint channelId);

@@ -3,39 +3,51 @@ using GXPEngine;                                // GXPEngine contains the engine
 using System.Drawing;                           // System.Drawing contains drawing tools such as Color definitions
 using GXPEngine.GXPEngine;
 using System.Security.Policy;
+using System.Runtime.Remoting.Channels;
 
 public class MyGame : Game
 {
 
     MusicDisk musicDisk;
     Note notes;
-    //Level level;
-    //EasyDraw turnTable;
-    public MyGame() : base(1920, 1080, false)     // Create a window that's 800x600 and NOT fullscreen
+    SoundChannel channel;
+    float msPerBeat;
+    float bpm = 122;
+    int beat;
+    int lastBeat;
+    public MyGame() : base(1366, 768, false)     // Create a window that's 800x600 and NOT fullscreen
     {
 
         //level = new Level(musicDisk);
         musicDisk = new MusicDisk();
-        Console.WriteLine("pp");
         //AddChild(level);
 
         AddChild(musicDisk);
-        SetXY(960, 1300);
+        musicDisk.SetXY(width/2, height/2 + 700);
 
-        for (int i = 0; i < 4; i++) 
-        {
-            notes = new Note(musicDisk);
-            AddChild(notes);
-        }
-
-        //TurnTable();
+        channel = new Sound("songs\\blast.mp3").Play();
+        msPerBeat = 1000f / (bpm / 60f);
     }
 
-    // For every game object, Update is called every frame, by the engine:
     void Update()
     {
+
+        notes = new Note(musicDisk);
+        BeatHandler.ChangeBeat(channel, msPerBeat);
+        Console.WriteLine("Beat: " + BeatHandler.GetBeat());
+
+        if (beat != lastBeat)
+        {
+
+            AddChild(notes);
+
+            //do stuff
+
+            lastBeat = beat;
+        }
         //EventSystem.instance.Collision();
         //EventSystem.instance.Click();
+
     }
 
     static void Main()                          // Main() is the first method that's called when the program is run

@@ -40,9 +40,10 @@ namespace GXPEngine.Core
   		public const uint FMOD_VIRTUAL_PLAYFROMSTART = 0x80000000;	
 		public const int FMOD_CHANNEL_FREE = -1;
 		public const int FMOD_CHANNEL_REUSE = -2;
+		public const int FMOD_TIMEUNIT_MS = 0x00000001;
 
-// System		
-		[DllImport("lib/fmodex.dll", EntryPoint="FMOD_System_Create")]
+        // System		
+        [DllImport("lib/fmodex.dll", EntryPoint="FMOD_System_Create")]
 		public static extern void System_Create(out IntPtr system);
 		
 		[DllImport("lib/fmodex.dll", EntryPoint="FMOD_System_Init")]
@@ -107,7 +108,11 @@ namespace GXPEngine.Core
 
 		[DllImport("lib/fmodex.dll", EntryPoint="FMOD_Channel_SetVolume")]
 		public static extern void Channel_SetVolume( uint channel, float volume );
-		
-	}
+
+        // Playing
+        [DllImport("lib/fmodex.dll", EntryPoint = "FMOD_Channel_GetPosition")]
+        public static extern void Channel_GetPosition(uint channel, out uint position, int postType);
+
+    }
 }
 

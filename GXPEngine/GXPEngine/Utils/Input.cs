@@ -6,7 +6,7 @@ namespace GXPEngine
 	/// <summary>
 	/// The Input class contains functions for reading keys and mouse
 	/// </summary>
-	public class Controller
+	public class Input
 	{
 		/// <summary>
 		/// Returns 'true' if given key is down, else returns 'false'

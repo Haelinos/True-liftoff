@@ -11,19 +11,12 @@ namespace GXPEngine
 {
     public class MusicDisk : AnimationSprite
     {
-        public MusicDisk() : base("musicdisk.png", 1, 1) 
+        public MusicDisk() : base("sprites\\musicdisk.png", 1, 1) 
         {
             SetOrigin(width / 2, height / 2);
             scale = 0.5f;
             SetCycle(0, 1);
 
-        }
-
-
-
-
-        public void Update()
-        {
         }
     }
 }

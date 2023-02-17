@@ -76,6 +76,13 @@ namespace GXPEngine.Core
 			return outId;
 		}
 
+        public override uint GetChannelPosition(uint channelId)
+        {
+            uint position;
+            FMOD.Channel_GetPosition(channelId, out position, FMOD.FMOD_TIMEUNIT_MS);
+            return position;
+        }
+
         public override float GetChannelFrequency(uint channelId)
         {
 			float frequency;
