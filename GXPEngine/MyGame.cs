@@ -11,13 +11,14 @@ public class MyGame : Game
     MusicDisk musicDisk;
     Note notes;
     SoundChannel channel;
+    EventSystem es;
     float msPerBeat;
     float bpm = 122;
     int beat;
     int lastBeat;
     public MyGame() : base(1366, 768, false)     // Create a window that's 800x600 and NOT fullscreen
     {
-
+        es = new EventSystem();
         //level = new Level(musicDisk);
         musicDisk = new MusicDisk();
         //AddChild(level);
@@ -31,22 +32,17 @@ public class MyGame : Game
 
     void Update()
     {
-
+        EventSystem.instance.GlobalUpdate();
         notes = new Note(musicDisk);
         BeatHandler.ChangeBeat(channel, msPerBeat);
         Console.WriteLine("Beat: " + BeatHandler.GetBeat());
+        beat = BeatHandler.GetBeat();
 
         if (beat != lastBeat)
         {
-
             AddChild(notes);
-
-            //do stuff
-
             lastBeat = beat;
         }
-        //EventSystem.instance.Collision();
-        //EventSystem.instance.Click();
 
     }
 

@@ -22,3 +22,10 @@ C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\obj\x86\Deb
 C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
 C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.exe
 C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.pdb
+C:\Users\mined\Documents\True-liftoff\GXPEngine\bin\Debug\GXPEngine.exe.config
+C:\Users\mined\Documents\True-liftoff\GXPEngine\bin\Debug\GXPEngine.exe
+C:\Users\mined\Documents\True-liftoff\GXPEngine\bin\Debug\GXPEngine.pdb
+C:\Users\mined\Documents\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.csproj.AssemblyReference.cache
+C:\Users\mined\Documents\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+C:\Users\mined\Documents\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.exe
+C:\Users\mined\Documents\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.pdb

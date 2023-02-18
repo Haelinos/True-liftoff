@@ -20,8 +20,8 @@ namespace GXPEngine
         public Note(MusicDisk musicDisk) : base("sprites\\circle_blue.png")
         {
             SetOrigin(width / 2, height / 2);
-            scale = 1;
-
+            SetXY(600, -200);
+            EventSystem.instance.onUpdate += Update;
             this.musicDisk = musicDisk;
         }
 
