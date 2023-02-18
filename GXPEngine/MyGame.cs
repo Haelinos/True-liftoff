@@ -12,39 +12,24 @@ public class MyGame : Game
     Note notes;
     SoundChannel channel;
     EventSystem es;
-    float msPerBeat;
-    float bpm = 122;
-    int beat;
-    int lastBeat;
+    AudioManager am;
+    MidiLevel level;
     public MyGame() : base(1366, 768, false)     // Create a window that's 800x600 and NOT fullscreen
     {
         es = new EventSystem();
-        //level = new Level(musicDisk);
+        am = new AudioManager();
         musicDisk = new MusicDisk();
-        //AddChild(level);
-
+        AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
         AddChild(musicDisk);
         musicDisk.SetXY(width/2, height/2 + 700);
-
-        channel = new Sound("songs\\blast.mp3").Play();
-        channel.Volume = 0;
-        msPerBeat = 1000f / (bpm / 60f);
-
-        MidiParser.Parse("midi\\alwaysThen.mid");
+        level = new MidiLevel("midi\\alwaysThen.mid", 700);
+        AddChild(level);
     }
 
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
         notes = new Note(musicDisk);
-        BeatHandler.ChangeBeat(channel, msPerBeat);
-        beat = BeatHandler.GetBeat();
-
-        if (beat != lastBeat)
-        {
-            AddChild(notes);
-            lastBeat = beat;
-        }
 
     }
 
