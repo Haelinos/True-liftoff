@@ -53,7 +53,6 @@ namespace GXPEngine
         {
             if (DistanceTo(musicDisk) < musicDisk.width / 2)
             {
-                Console.WriteLine("is colliding with musicdisk");
                 LateDestroy();
             }
         }

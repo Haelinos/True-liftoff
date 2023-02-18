@@ -13,7 +13,10 @@ namespace GXPEngine
 		/// use this to offset ends of all notes on the level
 		/// </summary>
 		public float NoteEndOffset { get; set; }
-
+		/// <summary>
+		/// overall offset which can either be positive (notes falling with delay) or negative (music starts with delay)
+		/// </summary>
+		public float GlobalOffset { get; set; }
 		private List<MidiNote> _notes= new List<MidiNote>();
 
 		public MidiLevel()

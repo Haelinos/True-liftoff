@@ -27,7 +27,10 @@ public class MyGame : Game
         musicDisk.SetXY(width/2, height/2 + 700);
 
         channel = new Sound("songs\\blast.mp3").Play();
+        channel.Volume = 0;
         msPerBeat = 1000f / (bpm / 60f);
+
+        MidiParser.Parse("midi\\alwaysThen.mid");
     }
 
     void Update()
@@ -35,7 +38,6 @@ public class MyGame : Game
         EventSystem.instance.GlobalUpdate();
         notes = new Note(musicDisk);
         BeatHandler.ChangeBeat(channel, msPerBeat);
-        Console.WriteLine("Beat: " + BeatHandler.GetBeat());
         beat = BeatHandler.GetBeat();
 
         if (beat != lastBeat)

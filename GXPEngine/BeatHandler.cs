@@ -14,7 +14,7 @@ public static class BeatHandler
     public static int ChangeBeat(SoundChannel song, float msPerBeat)
     {
         if (song.Position >= beat * msPerBeat)
-        {
+        {   
             beat++;
             Console.WriteLine(beat);
         }

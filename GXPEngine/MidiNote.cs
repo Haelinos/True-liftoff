@@ -24,10 +24,10 @@ namespace GXPEngine
 		private long _absoluteStart;
 		private int _duration;
 		private int _pitch;
-		public MidiNote(long absoluteStart, int duration, int pitch)
+		public MidiNote(long absoluteStart, long absoluteEnd, int pitch)
 		{
 			_absoluteStart = absoluteStart;
-			_duration = duration;
+			_duration = (int)(absoluteEnd - absoluteStart);
 			_pitch = pitch;
 
 		}
