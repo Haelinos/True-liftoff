@@ -239,6 +239,11 @@ namespace GXPEngine
 			_bounds.x = -x;
 			_bounds.y = -y;
 		}
+		public void SetOrigin()
+		{
+			_bounds.x = -(texture.width/ 2);
+			_bounds.y = -(texture.height/ 2);
+		}
 		
 		//------------------------------------------------------------------------------------------------------------------------
 		//														Mirror

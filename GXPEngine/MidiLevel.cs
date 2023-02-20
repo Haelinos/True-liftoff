@@ -23,7 +23,7 @@ namespace GXPEngine
 
 		private int firstNoteNumber;
 		private List<MidiNote> _notes= new List<MidiNote>();
-		private List<EasyDraw> drawnNotes = new List<EasyDraw>();
+		private List<Note> drawnNotes = new List<Note>();
 
 		public MidiLevel(string path, float offset)
 		{
@@ -31,7 +31,7 @@ namespace GXPEngine
 			GlobalOffset = offset;
 			EventSystem.instance.onUpdate += Update;
 			firstNoteNumber = 71;
-			LevelSpeed = 2;
+			LevelSpeed = 5f;
 		}
 		private void Update()
 		{
@@ -41,7 +41,10 @@ namespace GXPEngine
 			}
 			if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
 			{
-				SpawnNote(_notes.First().Duration, _notes.First().Pitch);
+				float length = LevelSpeed * _notes.First().Duration / 1000 * 80;
+				Note note = new Note(length, _notes.First().Pitch - firstNoteNumber, LevelSpeed);
+				drawnNotes.Add(note);
+				AddChild(note);
 				_notes.RemoveAt(0);
 			}
 		}
@@ -57,7 +60,6 @@ namespace GXPEngine
 			ed.SetXY(x, y);
 			ed.Clear(Color.AliceBlue);
 			AddChild(ed);
-			drawnNotes.Add(ed);
 		}
 
 	}

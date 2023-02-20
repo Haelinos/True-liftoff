@@ -18,7 +18,7 @@ public class MyGame : Game
     {
         es = new EventSystem();
         am = new AudioManager();
-        musicDisk = new MusicDisk();
+        musicDisk = new MusicDisk(0.55f);
         AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
         AddChild(musicDisk);
         musicDisk.SetXY(width/2, height/2 + 700);
@@ -29,7 +29,6 @@ public class MyGame : Game
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
-        notes = new Note(musicDisk);
 
     }
 
