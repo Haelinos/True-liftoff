@@ -49,7 +49,7 @@ namespace GXPEngine
 			_offset = offset;
 
 			_currentTime = 0f;
-			_currentMillisecondsPerBeat = 1000f / bpm;
+			_currentMillisecondsPerBeat = 60000f / bpm;  // ? 60000f / bpm doens't work?
 
 			_debug = new Sprite("sprites/circle_blue.png");
 			AddChild(_debug);
@@ -62,7 +62,7 @@ namespace GXPEngine
         private void updateBeatNumber()
 		{
             _currentTime += Time.deltaTime;
-            _currentBeatNumber = (int)Mathf.Floor(_currentTime / _currentMillisecondsPerBeat / Constants.TicsPerLine);/// _currentMillisecondsPerBeat);
+			_currentBeatNumber = (int)Mathf.Floor(_currentTime * Constants.TicsPerLine / _currentMillisecondsPerBeat);// / Constants.TicsPerLine);/// _currentMillisecondsPerBeat);
 
 			_debug.visible = (_currentBeatNumber % 4 == 0);
         }

@@ -14,7 +14,7 @@ public class MyGame : Game
     //EventSystem es;
     Level level;
 
-    public MyGame() : base(1366, 768, false)     // Create a window that's 800x600 and NOT fullscreen
+    public MyGame() : base(1366, 768, false)
     {
         //es = new EventSystem();
    
@@ -22,7 +22,7 @@ public class MyGame : Game
         AddChild(musicDisk);
         musicDisk.SetXY(width/2, height/2 + 700);
 
-        level = new Level("alwaysThen", 60, 2000);
+        level = new Level("blast", 122, 2000);
         AddChild(level);
     }
 

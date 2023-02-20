@@ -8,7 +8,7 @@ public static class Constants
 {
     public const int FirstNote = 71;
     public const int PixelsPerLine = 20;
-    public const int TicsPerLine = 16;
+    public const int TicsPerLine = 4;
 
     public const string SongFolder = "songs\\";
     public const string DataFolder = "midi\\";

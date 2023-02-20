@@ -13,18 +13,18 @@ namespace GXPEngine
 {
     public class MusicDisk : AnimationSprite
     {
-        SerialPort port = new SerialPort();
+       // SerialPort port = new SerialPort();
         private float speed;
         string test = "";
 		int angle = 0;
 		public MusicDisk(float speed) : base("sprites\\disc.png", 1, 1)
         {
-			port.PortName = "COM12";
-			port.BaudRate = 9600;
-			port.RtsEnable = true;
-			port.DtrEnable = true;
-		    port.Open();
-            port.NewLine= "\n";
+			//port.PortName = "COM12";
+			//port.BaudRate = 9600;
+			//port.RtsEnable = true;
+			//port.DtrEnable = true;
+		 //   port.Open();
+   //         port.NewLine= "\n";
 			this.speed = speed;
             SetOrigin(width / 2, height / 2);
             scale = 0.6f;
@@ -33,14 +33,14 @@ namespace GXPEngine
         }
         private void Update()
         {
-            string x = port.ReadExisting();
-            x = x.Split('\n').Last();
-            //Console.WriteLine(x);
-            if (x == ""||x=="-")
-            {
-                return;
-            }
-            int.TryParse(x, out angle);
+            //string x = port.ReadExisting();
+            //x = x.Split('\n').Last();
+            ////Console.WriteLine(x);
+            //if (x == ""||x=="-")
+            //{
+            //    return;
+            //}
+            //int.TryParse(x, out angle);
             rotation = angle*7.5f;
 		}
     }
