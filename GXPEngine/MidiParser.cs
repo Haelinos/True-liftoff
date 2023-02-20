@@ -30,7 +30,7 @@ namespace GXPEngine
 						NoteEvent ne = (NoteEvent)midiEvent;
 						noteOnEvents.Add(ne);
 						int millis = 60000 / (tempo * ticksPerQuartNote);
-						Console.WriteLine(millis * midiEvent.AbsoluteTime +  "  " + ne.NoteNumber);
+						//Console.WriteLine(millis * midiEvent.AbsoluteTime +  "  " + ne.NoteNumber);
 					}
 					else if(MidiEvent.IsNoteOff(midiEvent))
 					{

@@ -35,7 +35,7 @@ namespace GXPEngine
         {
             string x = port.ReadExisting();
             x = x.Split('\n').Last();
-            Console.WriteLine(x);
+            //Console.WriteLine(x);
             if (x == ""||x=="-")
             {
                 return;

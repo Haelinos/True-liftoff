@@ -31,7 +31,7 @@ namespace GXPEngine
 			GlobalOffset = offset;
 			EventSystem.instance.onUpdate += Update;
 			firstNoteNumber = 71;
-			LevelSpeed = 5f;
+			LevelSpeed = 0.5f;
 		}
 		private void Update()
 		{
@@ -41,7 +41,8 @@ namespace GXPEngine
 			}
 			if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
 			{
-				float length = LevelSpeed * _notes.First().Duration / 1000 * 80;
+				Console.WriteLine(Time.deltaTime);
+				float length =  LevelSpeed/Time.deltaTime*_notes.First().Duration * 4;
 				Note note = new Note(length, _notes.First().Pitch - firstNoteNumber, LevelSpeed);
 				drawnNotes.Add(note);
 				AddChild(note);
@@ -50,7 +51,6 @@ namespace GXPEngine
 		}
 		private void SpawnNote(float duration, int noteNumber)
 		{
-			Console.WriteLine(duration);
 			float length = LevelSpeed * duration/1000 * Time.deltaTime * 30;
 			int lane = noteNumber - firstNoteNumber;
 			float x = 400 + 300 * lane;
