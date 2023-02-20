@@ -10,6 +10,7 @@ namespace GXPEngine.GXPEngine
     {
 		public static EventSystem instance;
 		public event Action onUpdate;
+
 		public EventSystem()
 		{
 			instance = this;

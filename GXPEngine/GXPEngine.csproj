@@ -49,11 +49,12 @@
   <ItemGroup>
     <Compile Include="AudioManager.cs" />
     <Compile Include="BeatHandler.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="EventSystem.cs" />
-    <Compile Include="MidiLevel.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="MidiNote.cs" />
     <Compile Include="MidiParser.cs" />
     <Compile Include="MyGame.cs" />

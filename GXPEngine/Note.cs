@@ -16,13 +16,16 @@ namespace GXPEngine
         public MusicDisk musicDisk;
         private int pitch;
         private float speed;
+        private int startPosition;
 
-        public Note(float length, int pitch, float speed)
+        private float targetY = 0f;
+
+        public Note(int startPosition, int pitch, int duration, float speed)
         {
-            //SetXY(600, -200);
-            EventSystem.instance.onUpdate += Update;
+            this.startPosition = startPosition;
             this.pitch = pitch;
             this.speed = speed;
+
             Color c = Color.White;
             switch (pitch)
             {
@@ -38,44 +41,56 @@ namespace GXPEngine
                 default:
                     break;
             }
-            InitializeNote(length, c);
+            InitializeNote(duration, c);
         }
-        private void InitializeNote(float length, Color color)
-        {
-            Sprite bottom = new Sprite("sprites\\noteBottom.png");
-            Sprite middle = new Sprite("sprites\\noteMiddle.png");
-            Sprite up = new Sprite("sprites\\noteUp.png");
-            bottom.SetOrigin(bottom.width/2, bottom.height);
-            middle.SetOrigin(middle.width/2, middle.height);
-            up.SetOrigin(up.width/2, up.height);
-            bottom.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
-            middle.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
-            up.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
 
-            float x = 400 + 300 * pitch;
-            bottom.SetXY(x, 0);
-            middle.SetXY(x, 0);
-            up.SetXY(x, 0);
-            float middleScale = 1f / 20 * (length - 40);
-            middle.SetScaleXY(1, middleScale);
-            middle.Move(0, -20);
-            up.Move(0, -20 - middle.height);
-            if (length > 40)
-            {
-                AddChild(middle);
-            }
-            AddChild(up); 
+        private void InitializeNote(int duration, Color color)
+        {
+            Sprite top = new Sprite("sprites\\noteUp.png");
+            Sprite middle = new Sprite("sprites\\noteMiddle.png");
+            Sprite bottom = new Sprite("sprites\\noteBottom.png");
+
+            top.SetOrigin(top.width / 2, top.height);
+            middle.SetOrigin(middle.width/2, middle.height);
+            bottom.SetOrigin(bottom.width / 2, bottom.height);
+
+            top.SetColor((float)color.R / 255, (float)color.G / 255, (float)color.B / 255);
+            middle.SetColor((float)color.R / 255, (float)color.G / 255, (float)color.B / 255);
+            bottom.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
+
+            this.x = 400 + 300 * pitch; //Use Constants!
+
+            int noteLength = duration * Constants.PixelsPerLine;// 1f / 20 * (length - 40);
+
+            top.y = -noteLength / 2;
+            bottom.y = noteLength / 2;
+
+            //middle.SetScaleXY(1, middleScale);
+            //middle.Move(0, -20);
+            //up.Move(0, -20 - middle.height);
+            //if (length > 40)
+            //{
+            //}
+            AddChild(top);
+            AddChild(middle);
             AddChild(bottom);
         }
 
-        public void Update()
+        public void Step(int songPosition, float speed)
         {
-            MoveNoteDown();
+            int currentPosition = songPosition - startPosition;
+            targetY = currentPosition * Constants.PixelsPerLine;
+//            MoveNoteDown();
+        }
+
+        void Update()
+        {
+            y = y * 0.99f + targetY * 0.01f;
         }
 
         private void MoveNoteDown()
         {
-            y += speed;
+            y += speed * Constants.PixelsPerLine;
         }
 
         void CollisionChecker()

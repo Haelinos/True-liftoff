@@ -10,19 +10,23 @@ namespace GXPEngine
 {
 	internal class AudioManager
 	{
-		public static AudioManager instance;
-		public SoundChannel channel;
-		public AudioManager()
+
+		private SoundChannel _channel;
+		private Sound _sound;
+
+		public AudioManager(string path)
 		{
-			instance = this;	
+			_sound = new Sound(path);
 		}
-		public void StartSong(string path)
+
+		public void StartSong()
 		{
-			channel = new Sound(path).Play();
+			_channel = _sound.Play();
 		}
+
 		public uint GetPosition()
 		{
-			return channel.Position;
+			return _channel.Position;
 		}
 	}
 }

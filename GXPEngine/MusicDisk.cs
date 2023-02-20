@@ -19,17 +19,17 @@ namespace GXPEngine
 		int angle = 0;
 		public MusicDisk(float speed) : base("sprites\\disc.png", 1, 1)
         {
-			port.PortName = "COM5";
+			port.PortName = "COM12";
 			port.BaudRate = 9600;
 			port.RtsEnable = true;
 			port.DtrEnable = true;
-			port.Open();
+		    port.Open();
             port.NewLine= "\n";
 			this.speed = speed;
             SetOrigin(width / 2, height / 2);
             scale = 0.6f;
             SetCycle(0, 1);
-            EventSystem.instance.onUpdate += Update;
+            //EventSystem.instance.onUpdate += Update;
         }
         private void Update()
         {

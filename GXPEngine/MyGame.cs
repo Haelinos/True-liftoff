@@ -11,24 +11,24 @@ public class MyGame : Game
     MusicDisk musicDisk;
     Note notes;
     SoundChannel channel;
-    EventSystem es;
-    AudioManager am;
-    MidiLevel level;
+    //EventSystem es;
+    Level level;
+
     public MyGame() : base(1366, 768, false)     // Create a window that's 800x600 and NOT fullscreen
     {
-        es = new EventSystem();
-        am = new AudioManager();
+        //es = new EventSystem();
+   
         musicDisk = new MusicDisk(0.55f);
-        AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
         AddChild(musicDisk);
         musicDisk.SetXY(width/2, height/2 + 700);
-        level = new MidiLevel("midi\\alwaysThen.mid", 2000);
+
+        level = new Level("alwaysThen", 60, 2000);
         AddChild(level);
     }
 
     void Update()
     {
-        EventSystem.instance.GlobalUpdate();
+        //EventSystem.instance.GlobalUpdate();
     }
 
     static void Main()                          // Main() is the first method that's called when the program is run
