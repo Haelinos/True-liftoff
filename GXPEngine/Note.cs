@@ -45,6 +45,7 @@ namespace GXPEngine
             }
             InitializeNoteStart();
         }
+
         private void InitializeNoteStart()
         {
             Sprite bottom = new Sprite("sprites\\noteBottom.png");
