@@ -13,6 +13,10 @@ namespace GXPEngine
 		/// </summary>
 		public long AbsoluteStart { get { return _absoluteStart; } }
 		/// <summary>
+		/// end of the note
+		/// </summary>
+		public long AbsoluteEnd { get { return _absoluteEnd; } }
+		/// <summary>
 		/// duration of the note
 		/// </summary>
 		public int Duration { get { return _duration; } }
@@ -22,11 +26,13 @@ namespace GXPEngine
 		public int Pitch { get { return _pitch; } }
 
 		private long _absoluteStart;
+		private long _absoluteEnd;
 		private int _duration;
 		private int _pitch;
 		public MidiNote(long absoluteStart, long absoluteEnd, int pitch)
 		{
 			_absoluteStart = absoluteStart;
+			_absoluteEnd = absoluteEnd;
 			_duration = (int)(absoluteEnd - absoluteStart);
 			_pitch = pitch;
 

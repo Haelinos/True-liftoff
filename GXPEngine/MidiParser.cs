@@ -9,8 +9,9 @@ namespace GXPEngine
 {
 	internal class MidiParser
 	{
-		public static List<MidiNote> Parse(string path)
+		public static List<MidiNote> Parse(string path, out int firstNote)
 		{
+			firstNote = int.MaxValue;
 			List<MidiNote> returnList = new List<MidiNote>();
 			List<NoteEvent> noteOnEvents = new List<NoteEvent>();
 			List<NoteEvent> noteOffEvents = new List<NoteEvent>();
@@ -29,6 +30,10 @@ namespace GXPEngine
 					{
 						NoteEvent ne = (NoteEvent)midiEvent;
 						noteOnEvents.Add(ne);
+						if (ne.NoteNumber < firstNote)
+						{
+							firstNote = ne.NoteNumber;
+						}
 						int millis = 60000 / (tempo * ticksPerQuartNote);
 						Console.WriteLine(millis * midiEvent.AbsoluteTime +  "  " + ne.NoteNumber);
 					}

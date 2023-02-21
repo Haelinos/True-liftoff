@@ -22,14 +22,13 @@ public class MyGame : Game
         AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
         AddChild(musicDisk);
         musicDisk.SetXY(width/2, height/2 + 700);
-        level = new MidiLevel("midi\\alwaysThen.mid", 700);
+        level = new MidiLevel("midi\\alwaysThen.mid", 0);
         AddChild(level);
     }
 
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
-
     }
 
     static void Main()                          // Main() is the first method that's called when the program is run

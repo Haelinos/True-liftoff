@@ -27,22 +27,16 @@ namespace GXPEngine
 
 		public MidiLevel(string path, float offset)
 		{
-			_notes = MidiParser.Parse(path);
+			_notes = MidiParser.Parse(path, out firstNoteNumber);
 			GlobalOffset = offset;
-			EventSystem.instance.onUpdate += Update;
-			firstNoteNumber = 71;
-			LevelSpeed = 5f;
+			EventSystem.instance.onUpdate += LevelUpdate;
+			LevelSpeed = 1f;
 		}
-		private void Update()
+		private void LevelUpdate()
 		{
-			foreach (var note in drawnNotes)
-			{
-				note.Move(0, LevelSpeed);
-			}
 			if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
 			{
-				float length = LevelSpeed * _notes.First().Duration / 1000 * 80;
-				Note note = new Note(length, _notes.First().Pitch - firstNoteNumber, LevelSpeed);
+				Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd);
 				drawnNotes.Add(note);
 				AddChild(note);
 				_notes.RemoveAt(0);
