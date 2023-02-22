@@ -16,7 +16,7 @@ public static class BeatHandler
         if (song.Position >= beat * msPerBeat)
         {   
             beat++;
-            Console.WriteLine(beat);
+            //Console.WriteLine(beat);
         }
 
         return beat;

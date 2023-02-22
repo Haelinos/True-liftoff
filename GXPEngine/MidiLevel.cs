@@ -23,7 +23,7 @@ namespace GXPEngine
 
 		private int firstNoteNumber;
 		private List<MidiNote> _notes= new List<MidiNote>();
-		private List<Note> drawnNotes = new List<Note>();
+		public List<Note> drawnNotes = new List<Note>();
 
 		public MidiLevel(string path, float offset)
 		{
@@ -42,19 +42,5 @@ namespace GXPEngine
 				_notes.RemoveAt(0);
 			}
 		}
-		private void SpawnNote(float duration, int noteNumber)
-		{
-			Console.WriteLine(duration);
-			float length = LevelSpeed * duration/1000 * Time.deltaTime * 30;
-			int lane = noteNumber - firstNoteNumber;
-			float x = 400 + 300 * lane;
-			float y = -100;
-			EasyDraw ed = new EasyDraw(50, (int)length, false);
-			ed.SetOrigin(25, (int)length);
-			ed.SetXY(x, y);
-			ed.Clear(Color.AliceBlue);
-			AddChild(ed);
-		}
-
 	}
 }

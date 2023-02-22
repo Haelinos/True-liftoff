@@ -18,11 +18,11 @@ public class MyGame : Game
     {
         es = new EventSystem();
         am = new AudioManager();
-        musicDisk = new MusicDisk(0.55f);
+        level = new MidiLevel("midi\\alwaysThen.mid", 0);
+        musicDisk = new MusicDisk(0.55f,level.drawnNotes);
         AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
         AddChild(musicDisk);
-        musicDisk.SetXY(width/2, height/2 + 400);
-        level = new MidiLevel("midi\\alwaysThen.mid", 0);
+        musicDisk.SetXY(width/2, height/2 + 500);
         AddChild(level);
     }
 
