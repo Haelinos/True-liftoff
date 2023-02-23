@@ -33,3 +33,6 @@ C:\Users\mined\Documents\True-liftoff\GXPEngine\bin\Debug\NAudio.Core.dll
 C:\Users\mined\Documents\True-liftoff\GXPEngine\bin\Debug\NAudio.Midi.dll
 C:\Users\mined\Documents\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.csproj.SuggestedBindingRedirects.cache
 C:\Users\mined\Documents\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CopyComplete
+C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\bin\Debug\NAudio.Core.dll
+C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\bin\Debug\NAudio.Midi.dll
+C:\Users\hznie\OneDrive\Documenten\CMGT\y1 b3\True-liftoff\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CopyComplete

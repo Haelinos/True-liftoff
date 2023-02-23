@@ -35,7 +35,7 @@ namespace GXPEngine
 							firstNote = ne.NoteNumber;
 						}
 						int millis = 60000 / (tempo * ticksPerQuartNote);
-						Console.WriteLine(millis * midiEvent.AbsoluteTime +  "  " + ne.NoteNumber);
+						//Console.WriteLine(millis * midiEvent.AbsoluteTime +  "  " + ne.NoteNumber);
 					}
 					else if(MidiEvent.IsNoteOff(midiEvent))
 					{

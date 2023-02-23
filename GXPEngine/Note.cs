@@ -13,11 +13,10 @@ namespace GXPEngine
 {
     public class Note : GameObject
     {
-        public MusicDisk musicDisk;
         private int pitch;
         private float speed;
 
-        private Color noteColor;
+        public Color noteColor;
         private float length = 0;
         private long noteEnd;
 
@@ -45,6 +44,7 @@ namespace GXPEngine
             }
             InitializeNoteStart();
         }
+
         private void InitializeNoteStart()
         {
             Sprite bottom = new Sprite("sprites\\noteBottom.png");
@@ -60,51 +60,31 @@ namespace GXPEngine
         {
 			Sprite middle = new Sprite("sprites\\noteMiddle.png");
 			Sprite up = new Sprite("sprites\\noteUp.png");
+
 			middle.SetOrigin(middle.width / 2, middle.height);
 			up.SetOrigin(up.width / 2, up.height);
+
             middle.SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
             up.SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
+
             float x = 400 + 300 * pitch;
+
             middle.SetXY(x, 0);
             up.SetXY(x, 0);
+
             float middleScale = 1f / 20 * (length - 20);
+
             middle.SetScaleXY(1, middleScale);
             middle.Move(0, -20);
+
             up.Move(0, -20 - middle.height);
+
             if (length > 40)
             {
             }
             AddChild(middle);
             AddChild(up);
         }
-		//private void InitializeNote(float length, Color color)
-		//{
-		//    Sprite bottom = new Sprite("sprites\\noteBottom.png");
-		//    Sprite middle = new Sprite("sprites\\noteMiddle.png");
-		//    Sprite up = new Sprite("sprites\\noteUp.png");
-		//    bottom.SetOrigin(bottom.width/2, bottom.height);
-		//    middle.SetOrigin(middle.width/2, middle.height);
-		//    up.SetOrigin(up.width/2, up.height);
-		//    bottom.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
-		//    middle.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
-		//    up.SetColor((float)color.R/255, (float)color.G/255, (float)color.B/255);
-
-		//    float x = 400 + 300 * pitch;
-		//    bottom.SetXY(x, 0);
-		//    middle.SetXY(x, 0);
-		//    up.SetXY(x, 0);
-		//    float middleScale = 1f / 20 * (length - 40);
-		//    middle.SetScaleXY(1, middleScale);
-		//    middle.Move(0, -20);
-		//    up.Move(0, -20 - middle.height);
-		//    if (length > 40)
-		//    {
-		//        AddChild(middle);
-		//    }
-		//    AddChild(up); 
-		//    AddChild(bottom);
-		//}
-
 		public void NoteUpdate()
         {
             MoveNoteDown();
@@ -121,14 +101,6 @@ namespace GXPEngine
         {
             y += speed;
             length += speed;
-        }
-
-        void CollisionChecker()
-        {
-            if (DistanceTo(musicDisk) < musicDisk.width / 2)
-            {
-                LateDestroy();
-            }
         }
     }
 }
