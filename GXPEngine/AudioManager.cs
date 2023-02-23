@@ -20,6 +20,7 @@ namespace GXPEngine
 		{
 			channel = new Sound(path).Play();
 		}
+
 		public uint GetPosition()
 		{
 			return channel.Position;

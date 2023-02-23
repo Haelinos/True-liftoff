@@ -15,22 +15,16 @@ public class MyGame : Game
     MidiLevel midiLevel;
     Level level;
     Menu menu;
+
+    bool menuSong;
     public MyGame() : base(1366, 768, false)
     {
         menu = new Menu();
         es = new EventSystem();
         am = new AudioManager();
         EventSystem.instance.onLevelStart += StartLevel;
-        //score = new Score();
-        //level = new Level();    
-        
-
 
         AddChild(menu);
-
-        //AddChild(score);
-        //AddChild(level);
-
     }
 
     void Update()

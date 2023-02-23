@@ -1,23 +1,26 @@
 ﻿using GXPEngine.GXPEngine;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-    class Menu : GameObject
+    class Menu : AnimationSprite
     {
         Sprite button;
+        AnimationSprite buttonFlash;
         Sprite menuBackground;
         Sprite menuDisk;
         Sprite beatdownLogo;
 
         bool hasStarted;
-        public Menu() : base()
+        public Menu() : base("sprites\\peepee.png", 2, 1)
         {
-            hasStarted= false;
+
+            hasStarted = false;
 
             menuBackground = new Sprite("sprites\\checkered_background.png");
             menuBackground.scale = 0.8f;
@@ -31,6 +34,12 @@ namespace GXPEngine
             menuDisk.scale = 2f;
             menuDisk.x = (game.width) / 2 ;
             menuDisk.y = (game.height) / 2 + 800 ;
+
+            buttonFlash = new AnimationSprite("sprites\\peepee.png",2,1);
+            AddChild(buttonFlash);
+            buttonFlash.scale = 0.8f;
+            buttonFlash.x = (game.width - buttonFlash.width) / 2;
+            buttonFlash.y = (game.height - buttonFlash.height) / 2 + 300;
 
             button = new Sprite("sprites\\start_button.png");
             AddChild(button);
@@ -49,6 +58,7 @@ namespace GXPEngine
 
         void Update() 
         {
+            buttonFlash.Animate(0.01f);
             menuDisk.rotation++;
 
             if (Input.GetKey(Key.R)) 

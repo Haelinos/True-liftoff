@@ -34,6 +34,7 @@ namespace GXPEngine
 		}
 		private void LevelUpdate()
 		{
+			//after beatmap is finished, game stops.
 			if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
 			{
 				Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd, _notes.First().Color);

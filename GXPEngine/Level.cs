@@ -13,6 +13,8 @@ namespace GXPEngine
         const int HEIGHT = 1;
         const int SIZE = 1;
 
+        List<Note> drawnNotes;
+
         int[,] level = new int[HEIGHT, WIDTH] {
 
         {1},
@@ -52,6 +54,14 @@ namespace GXPEngine
 
                     }
                 }
+            }
+        }
+
+        void SetupEnd() 
+        {
+            if (drawnNotes == null)
+            {
+                LateDestroy();
             }
         }
     }
