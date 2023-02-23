@@ -12,14 +12,13 @@ namespace GXPEngine
 {
     class Score : GameObject
     {
-        int _score;
+        public int mainScore;
         private float speed;
-        MusicDisk musicDisk;
+        public static Score instance;
         public Score()
         {
-            _score = 0;
-            musicDisk = new MusicDisk(speed);
-
+            mainScore = 0;
+            instance = this;
         }
 
         public void Update() 

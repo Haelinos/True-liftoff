@@ -27,6 +27,9 @@ namespace GXPEngine
 
 		public MidiLevel(string path, float offset)
 		{
+			MusicDisk musicDisk = new MusicDisk(0.55f);
+			AddChildAt(musicDisk, 10);
+			musicDisk.SetXY(game.width / 2, game.height / 2 + 500);
 			_notes = MidiParser.Parse(path, out firstNoteNumber);
 			GlobalOffset = offset;
 			EventSystem.instance.onUpdate += LevelUpdate;
@@ -38,7 +41,7 @@ namespace GXPEngine
 			{
 				Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd, _notes.First().Color);
 				drawnNotes.Add(note);
-				AddChild(note);
+				AddChildAt(note, 110);
 				_notes.RemoveAt(0);
 			}
 		}

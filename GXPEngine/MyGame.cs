@@ -15,8 +15,10 @@ public class MyGame : Game
     MidiLevel midiLevel;
     Level level;
     Menu menu;
+    Score score;
     public MyGame() : base(1366, 768, false)
     {
+        score = new Score();
         menu = new Menu();
         es = new EventSystem();
         am = new AudioManager();
@@ -36,12 +38,12 @@ public class MyGame : Game
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
-
+        //Console.WriteLine(Score.instance.mainScore);
     }
     void StartLevel()
     {
         AudioManager.instance.StartSong("songs\\blastD.mp3");
-        midiLevel = new MidiLevel("midi\\test2.mid", 1200);
+        midiLevel = new MidiLevel("midi\\test2.mid", 800);
         AddChild(midiLevel);
 
     }
