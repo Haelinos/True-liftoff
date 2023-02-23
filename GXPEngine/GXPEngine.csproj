@@ -47,15 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioManager.cs" />
-    <Compile Include="BeatHandler.cs" />
+    <Compile Include="MusicHandler\AudioManager.cs" />
+    <Compile Include="MusicHandler\BeatHandler.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="EventSystem.cs" />
-    <Compile Include="MidiLevel.cs" />
-    <Compile Include="MidiNote.cs" />
-    <Compile Include="MidiParser.cs" />
+    <Compile Include="MidiHandler\MidiLevel.cs" />
+    <Compile Include="MidiHandler\MidiNote.cs" />
+    <Compile Include="MidiHandler\MidiParser.cs" />
     <Compile Include="MyGame.cs" />
     <Compile Include="GXPEngine\Core\Canvas.cs" />
     <Compile Include="GXPEngine\Game.cs" />
@@ -94,8 +94,8 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
-    <Compile Include="Note.cs" />
-    <Compile Include="MusicDisk.cs" />
+    <Compile Include="GameObjects\Note.cs" />
+    <Compile Include="GameObjects\MusicDisk.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
