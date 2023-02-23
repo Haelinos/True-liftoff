@@ -15,8 +15,12 @@ namespace GXPEngine
     {
         SerialPort port = new SerialPort();
         private float speed;
+        private int[] rotations = { 0, 120, 240 };
         string test = "";
-		int angle = 0;
+        int angle = 0;
+        private int detectionTreshold = 30;
+        private int rotationIndex = 0;
+        public static MusicDisk instance;
 		public MusicDisk(float speed) : base("sprites\\disc.png", 1, 1)
         {
             //port.PortName = "COM5";
@@ -30,6 +34,7 @@ namespace GXPEngine
             scale = 0.6f;
             SetCycle(0, 1);
             EventSystem.instance.onUpdate += Update;
+            instance = this;
         }
         private void Update()
         {
@@ -42,6 +47,33 @@ namespace GXPEngine
             //}
             //int.TryParse(x, out angle);
             //rotation = angle*7.5f;
+            if (Input.GetKeyDown(Key.A))
+            {
+                rotation -= 7.5f;
+            }
+            else if (Input.GetKeyDown(Key.D))
+            {
+                rotation += 7.5f;
+            }
+            
+		}
+        public int GetRotationIndex(int offset)
+        {
+			int trueRotation = (int)(rotation - (int)rotation / 360 * 360);
+			foreach (var rot in rotations)
+			{
+                int offsetRot = rot + offset;
+				if (Math.Abs(offsetRot - trueRotation) < detectionTreshold)
+				{
+					rotationIndex = offsetRot / 120 + 1;
+					break;
+				}
+				else
+				{
+					rotationIndex = 0;
+				}
+			}
+            return.rotationIndex;
 		}
     }
 }
