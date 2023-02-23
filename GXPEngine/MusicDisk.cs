@@ -73,7 +73,7 @@ namespace GXPEngine
 					rotationIndex = 0;
 				}
 			}
-            return.rotationIndex;
+            return rotationIndex;
 		}
     }
 }
