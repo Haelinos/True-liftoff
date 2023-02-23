@@ -24,18 +24,20 @@ namespace GXPEngine
 		/// note pitch aka number, use that to differentiate between note lanes in the game
 		/// </summary>
 		public int Pitch { get { return _pitch; } }
+		public int Color { get { return _color; } }
 
 		private long _absoluteStart;
 		private long _absoluteEnd;
 		private int _duration;
 		private int _pitch;
-		public MidiNote(long absoluteStart, long absoluteEnd, int pitch)
+		private int _color;
+		public MidiNote(long absoluteStart, long absoluteEnd, int pitch, int color)
 		{
 			_absoluteStart = absoluteStart;
 			_absoluteEnd = absoluteEnd;
 			_duration = (int)(absoluteEnd - absoluteStart);
 			_pitch = pitch;
-
+			_color = color;
 		}
 	}
 }

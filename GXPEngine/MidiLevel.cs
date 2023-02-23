@@ -30,13 +30,13 @@ namespace GXPEngine
 			_notes = MidiParser.Parse(path, out firstNoteNumber);
 			GlobalOffset = offset;
 			EventSystem.instance.onUpdate += LevelUpdate;
-			LevelSpeed = 1f;
+			LevelSpeed = 3f;
 		}
 		private void LevelUpdate()
 		{
 			if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
 			{
-				Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd);
+				Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd, _notes.First().Color);
 				drawnNotes.Add(note);
 				AddChild(note);
 				_notes.RemoveAt(0);

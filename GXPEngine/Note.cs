@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-    public class Note : GameObject
+    public class Note : Sprite
     {
         MusicDisk musicDisk;
         private int pitch;
@@ -22,7 +22,7 @@ namespace GXPEngine
         private float length = 0;
         private long noteEnd;
 
-        public Note(int pitch, float speed, long noteEnd)
+        public Note(int pitch, float speed, long noteEnd, int colorIndex) : base("sprites\\note.png")
         {
             //SetXY(600, -200);
             musicDisk = new MusicDisk(speed);
@@ -30,7 +30,7 @@ namespace GXPEngine
             this.speed = speed;
             this.noteEnd = noteEnd;
             noteColor = Color.White;
-            switch (pitch)
+            switch (colorIndex)
             {
                 case 0:
                     noteColor = Color.Cyan;
@@ -49,15 +49,10 @@ namespace GXPEngine
 
         private void InitializeNoteStart()
         {
-            Sprite bottom = new Sprite("sprites\\noteBottom.png");
-			bottom.SetOrigin(bottom.width / 2, bottom.height);
-			bottom.SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
-			float x = 400 + 300 * pitch;
-            tempX = x;
-			bottom.SetXY(x, 0);
-            AddChild(bottom);
+		    SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
+			x = 400 + 300 * pitch;
+			//SetXY(x, 0);
 			EventSystem.instance.onUpdate += NoteUpdate;
-			EventSystem.instance.onUpdate += CheckForEnd;
 		}
         private void InitializeNoteEnd()
         {
