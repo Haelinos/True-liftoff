@@ -24,7 +24,7 @@ public class MyGame : Game
         es = new EventSystem();
         am = new AudioManager();
         level = new MidiLevel("midi\\alwaysThen.mid", 0);
-        musicDisk = new MusicDisk(0.55f);
+        musicDisk = new MusicDisk(0.55f,level.drawnNotes);
         AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
 
         laser_cyan = new Sprite("sprites\\laser_cyan.png");
