@@ -14,7 +14,8 @@ public class MyGame : Game
     SoundChannel channel;
     EventSystem es;
     AudioManager am;
-    MidiLevel level;
+    MidiLevel Midilevel;
+    Level level;
     Background background;
     Menu menu;
     public MyGame() : base(1366, 768, false)
@@ -24,7 +25,8 @@ public class MyGame : Game
         es = new EventSystem();
         am = new AudioManager();
         score = new Score();
-        level = new MidiLevel("midi\\test2.mid", 0);
+        Midilevel = new MidiLevel("midi\\test2.mid", 0);
+        level = new Level();
         AudioManager.instance.StartSong("songs\\blast.mp3");
 
         background.SetOrigin(background.width / 2, background.height / 2);
@@ -36,9 +38,9 @@ public class MyGame : Game
         musicDisk.SetXY(width / 2, height / 2 + 500);
 
 
-        AddChild(level);
+        AddChild(Midilevel);
         AddChild(score);
-        //AddChild(menu);
+        AddChild(level);
 
     }
 

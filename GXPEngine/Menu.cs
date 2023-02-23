@@ -53,14 +53,25 @@ namespace GXPEngine
             if (Input.GetKeyDown(Key.R)) 
             {
                 StartGame();
+                HideMenu();
             }
         
+        }
+
+        void HideMenu() 
+        {
+            menuBackground.visible = false;
+            menuDisk.visible = false;
+            button.visible = false;
+            beatdownLogo.visible = false;
         }
 
         void StartGame() 
         {
             if (hasStarted == false) 
-            { 
+            {
+                Level level = new Level();
+                AddChild(level);
                 hasStarted = true;
             }
         }
