@@ -59,22 +59,29 @@ namespace GXPEngine
 		}
         public int GetRotationIndex(int offset)
         {
-            Console.WriteLine("rotation = " + rotation);
-            int trueRotation = (int)(rotation - (int)rotation / 120 * 360);
-			foreach (var rot in rotations)
-			{
-                int offsetRot = rot + offset;
-				if (Math.Abs(offsetRot - trueRotation) < detectionTreshold)
-				{
-					rotationIndex = offsetRot / 120 + 1;
-					break;
-				}
-				else
-				{
-					rotationIndex = 0;
-				}
-			}
-            Console.WriteLine("rotationIndex = " + rotationIndex);
+            //Console.WriteLine("rotation = " + rotation);
+            int trueRotation = ( (int) ( rotation % 360 + offset % 360 + 720 ) ) % 360;
+            //Console.WriteLine("toDegrees " + Mathf.CalculateAngleDeg(0, 1, 0, 0));
+            //Console.WriteLine("toDegrees " + Mathf.CalculateAngleDeg(0, 0, 0, 1));
+            //Console.WriteLine("toDegrees " + Mathf.CalculateAngleDeg(-1, 0, 0, 0));
+            //Console.WriteLine("toDegrees " + Mathf.CalculateAngleDeg(0, -1, 0, 0));
+            //Console.WriteLine("toRadians " + Mathf.ReverseAngleRad(90));
+            //Console.WriteLine("toRadians " + Mathf.ReverseAngleRad(-90));
+            //foreach (var rot in rotations)
+            //{
+            //             int offsetRot = rot + offset;
+            //	if (Math.Abs(offsetRot - trueRotation) < detectionTreshold)
+            //	{
+            //		rotationIndex = offsetRot / 120 + 1;
+            //		break;
+            //	}
+            //	else
+            //	{
+            //		rotationIndex = 0;
+            //	}
+            //}
+            //         Console.WriteLine("rotationIndex = " + rotationIndex);
+            rotationIndex = trueRotation / 120;
             return rotationIndex;
 		}
 

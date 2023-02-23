@@ -33,13 +33,13 @@ namespace GXPEngine
             switch (pitch)
             {
                 case 0:
-                    noteColor = Color.CadetBlue;
+                    noteColor = Color.Cyan;
                     break;
                 case 1:
-                    noteColor = Color.LawnGreen;
+                    noteColor = Color.Purple;
                     break;
                 case 2:
-                    noteColor = Color.Orange;
+                    noteColor = Color.Yellow;
                     break;
                 default:
                     break;
@@ -110,9 +110,17 @@ namespace GXPEngine
 
         void CollisionChecker() 
         {
+            //Console.WriteLine(rotation);
             musicDisk.GetRotationIndex(0);
+            Mathf.CalculateAngleDeg(musicDisk.width / 2, musicDisk.width / 2, tempX, y);
+            //Console.WriteLine(tempX);
 
-            Mathf.CalculateAngleDeg(musicDisk.width/2, musicDisk.width/2, );
+            //if (DistanceTo(Mathf.CalculateAngleDeg(musicDisk.width / 2, musicDisk.width / 2, tempX, y) ))
+            //{
+
+            //}
+            Console.WriteLine("({0}, {1}) -> ( {2}, {3})", musicDisk.x + musicDisk.width / 2, musicDisk.y +  musicDisk.height / 2, tempX, y);
+            Console.WriteLine(Mathf.CalculateAngleDeg(musicDisk.x + musicDisk.width / 2, musicDisk.y + musicDisk.height / 2, tempX, y));
 
             ////Console.WriteLine(pitch);
             //if (pitch == 0 && musicDisk.rotationIndex == 0) 
