@@ -25,7 +25,7 @@ namespace GXPEngine
         public void Update() 
         {
             //Console.WriteLine(_score);
-            Console.WriteLine(musicDisk.rotationIndex);
+            //Console.WriteLine(musicDisk.rotationIndex);
 
         }
         //public int IncreaseScore()

@@ -16,13 +16,15 @@ public class MyGame : Game
     AudioManager am;
     MidiLevel level;
     Background background;
+    Menu menu;
     public MyGame() : base(1366, 768, false)
     {
         background = new Background();
+        menu = new Menu();
         es = new EventSystem();
         am = new AudioManager();
         score = new Score();
-        level = new MidiLevel("midi\\blast.mid", 0);
+        level = new MidiLevel("midi\\test2.mid", 0);
         AudioManager.instance.StartSong("songs\\blast.mp3");
 
         background.SetOrigin(background.width / 2, background.height / 2);
@@ -36,6 +38,7 @@ public class MyGame : Game
 
         AddChild(level);
         AddChild(score);
+        //AddChild(menu);
 
     }
 

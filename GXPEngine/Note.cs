@@ -49,7 +49,7 @@ namespace GXPEngine
 
         private void InitializeNoteStart()
         {
-            Sprite bottom = new Sprite("sprites\\notes\\note_bottom.png");
+            Sprite bottom = new Sprite("sprites\\noteBottom.png");
 			bottom.SetOrigin(bottom.width / 2, bottom.height);
 			bottom.SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
 			float x = 400 + 300 * pitch;
@@ -62,8 +62,8 @@ namespace GXPEngine
         private void InitializeNoteEnd()
         {
             //middle note does not match up with other 2 parts 
-			Sprite middle = new Sprite("sprites\\notes\\note_mid.png");
-			Sprite top = new Sprite("sprites\\notes\\note_top.png");
+			Sprite middle = new Sprite("sprites\\noteMiddle.png");
+			Sprite top = new Sprite("sprites\\noteUp.png");
 
 			middle.SetOrigin(middle.width / 2, middle.height);
 			top.SetOrigin(top.width / 2, top.height);
@@ -77,7 +77,7 @@ namespace GXPEngine
             top.SetXY(x, 0);
 
             float middleScale = 1f / 20 * (length - 20);
-
+            Console.WriteLine(length);
             middle.SetScaleXY(1, middleScale);
             middle.Move(0, -20);
 
@@ -93,6 +93,10 @@ namespace GXPEngine
         {
             MoveNoteDown();
             CollisionChecker();
+            if (y>1000)
+            {
+                Destroy();
+            }
         }
         private void CheckForEnd()
         {
@@ -119,8 +123,8 @@ namespace GXPEngine
             //{
 
             //}
-            Console.WriteLine("({0}, {1}) -> ( {2}, {3})", musicDisk.x + musicDisk.width / 2, musicDisk.y +  musicDisk.height / 2, tempX, y);
-            Console.WriteLine(Mathf.CalculateAngleDeg(musicDisk.x + musicDisk.width / 2, musicDisk.y + musicDisk.height / 2, tempX, y));
+            //Console.WriteLine("({0}, {1}) -> ( {2}, {3})", musicDisk.x + musicDisk.width / 2, musicDisk.y +  musicDisk.height / 2, tempX, y);
+            //Console.WriteLine(Mathf.CalculateAngleDeg(musicDisk.x + musicDisk.width / 2, musicDisk.y + musicDisk.height / 2, tempX, y));
 
             ////Console.WriteLine(pitch);
             //if (pitch == 0 && musicDisk.rotationIndex == 0) 
