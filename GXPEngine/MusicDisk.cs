@@ -18,8 +18,8 @@ namespace GXPEngine
         private int[] rotations = { 0, 120, 240 };
         string test = "";
         int angle = 0;
-        private int detectionTreshold = 30;
-        private int rotationIndex = 0;
+        private int detectionTreshold = 60;
+        public int rotationIndex = 0;
         public static MusicDisk instance;
 		public MusicDisk(float speed) : base("sprites\\disc.png", 1, 1)
         {
@@ -31,7 +31,7 @@ namespace GXPEngine
             //port.NewLine = "\n";
             this.speed = speed;
             SetOrigin(width / 2, height / 2);
-            scale = 0.6f;
+            //scale = 0.6f;
             SetCycle(0, 1);
             EventSystem.instance.onUpdate += Update;
             instance = this;
@@ -47,19 +47,20 @@ namespace GXPEngine
             //}
             //int.TryParse(x, out angle);
             //rotation = angle*7.5f;
-            if (Input.GetKeyDown(Key.A))
+            if (Input.GetKey(Key.A))
             {
-                rotation -= 7.5f;
+                rotation--;
             }
-            else if (Input.GetKeyDown(Key.D))
+            else if (Input.GetKey(Key.D))
             {
-                rotation += 7.5f;
+                rotation++;
             }
             
 		}
         public int GetRotationIndex(int offset)
         {
-			int trueRotation = (int)(rotation - (int)rotation / 360 * 360);
+            Console.WriteLine("rotation = " + rotation);
+            int trueRotation = (int)(rotation - (int)rotation / 120 * 360);
 			foreach (var rot in rotations)
 			{
                 int offsetRot = rot + offset;
@@ -73,8 +74,10 @@ namespace GXPEngine
 					rotationIndex = 0;
 				}
 			}
+            Console.WriteLine("rotationIndex = " + rotationIndex);
             return rotationIndex;
 		}
+
     }
 }
 
