@@ -19,7 +19,7 @@ public class MyGame : Game
         es = new EventSystem();
         am = new AudioManager();
         level = new MidiLevel("midi\\alwaysThen.mid", 0);
-        musicDisk = new MusicDisk(0.55f,level.drawnNotes);
+        musicDisk = new MusicDisk(0.55f);
         AudioManager.instance.StartSong("songs\\alwaysThen.mp3");
         AddChild(musicDisk);
         musicDisk.SetXY(width/2, height/2 + 500);
