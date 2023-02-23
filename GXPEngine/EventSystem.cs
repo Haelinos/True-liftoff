@@ -10,6 +10,7 @@ namespace GXPEngine.GXPEngine
     {
 		public static EventSystem instance;
 		public event Action onUpdate;
+		public event Action onLevelStart;
 		public EventSystem()
 		{
 			instance = this;
@@ -17,6 +18,10 @@ namespace GXPEngine.GXPEngine
 		public void GlobalUpdate()
 		{
 			onUpdate?.Invoke();
+		}
+		public void StartLevel()
+		{
+			onLevelStart?.Invoke();
 		}
 	}
 }

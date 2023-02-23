@@ -50,40 +50,11 @@ namespace GXPEngine
         private void InitializeNoteStart()
         {
 		    SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
-			x = 400 + 300 * pitch;
+			x = 350 + 300 * pitch;
 			//SetXY(x, 0);
 			EventSystem.instance.onUpdate += NoteUpdate;
 		}
-        private void InitializeNoteEnd()
-        {
-            //middle note does not match up with other 2 parts 
-			Sprite middle = new Sprite("sprites\\noteMiddle.png");
-			Sprite top = new Sprite("sprites\\noteUp.png");
-
-			middle.SetOrigin(middle.width / 2, middle.height);
-			top.SetOrigin(top.width / 2, top.height);
-
-            middle.SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
-            top.SetColor((float)noteColor.R / 255, (float)noteColor.G / 255, (float)noteColor.B / 255);
-
-            float x = 400 + 300 * pitch;
-
-            middle.SetXY(x, 0);
-            top.SetXY(x, 0);
-
-            float middleScale = 1f / 20 * (length - 20);
-            Console.WriteLine(length);
-            middle.SetScaleXY(1, middleScale);
-            middle.Move(0, -20);
-
-            top.Move(0, -20 - middle.height);
-
-            if (length > 40)
-            {
-            }
-            AddChild(middle);
-            AddChild(top);
-        }
+        
 		public void NoteUpdate()
         {
             MoveNoteDown();
@@ -91,14 +62,6 @@ namespace GXPEngine
             if (y>1000)
             {
                 Destroy();
-            }
-        }
-        private void CheckForEnd()
-        {
-            if(AudioManager.instance.GetPosition() >= noteEnd)
-            {
-                EventSystem.instance.onUpdate -= CheckForEnd;
-                InitializeNoteEnd();
             }
         }
         private void MoveNoteDown()

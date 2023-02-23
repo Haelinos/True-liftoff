@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GXPEngine.GXPEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +51,7 @@ namespace GXPEngine
         {
             menuDisk.rotation++;
 
-            if (Input.GetKeyDown(Key.R)) 
+            if (Input.GetKey(Key.R)) 
             {
                 StartGame();
                 HideMenu();
@@ -68,12 +69,13 @@ namespace GXPEngine
 
         void StartGame() 
         {
-            if (hasStarted == false) 
+            if (hasStarted == false)
             {
                 Level level = new Level();
                 AddChild(level);
                 hasStarted = true;
             }
+            EventSystem.instance.StartLevel();
         }
     }
 }

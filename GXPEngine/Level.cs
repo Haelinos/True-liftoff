@@ -37,10 +37,17 @@ namespace GXPEngine
                     switch (tile)
                     {
                         case 1:
-                            Menu menu = new Menu();
-                            AddChild(menu);
-                            menu.x = col * SIZE;
-                            menu.y = row * SIZE;
+                            Background background = new Background();
+                            AddChild(background);
+                            background.x = col * SIZE;
+                            background.y = row * SIZE;
+                            background.SetOrigin(background.width / 2, background.height / 2);
+                            background.SetXY(game.width / 2, game.height / 2);
+
+                            MusicDisk musicDisk = new MusicDisk(0.55f);
+                            AddChild(musicDisk);
+                            musicDisk.SetXY(game.width / 2, game.height / 2 + 500);
+
                             break;
 
                     }

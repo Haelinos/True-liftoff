@@ -8,44 +8,41 @@ using System.Runtime.Remoting.Channels;
 public class MyGame : Game
 {
 
-    MusicDisk musicDisk;
-    Note notes;
-    Score score;
+    
     SoundChannel channel;
     EventSystem es;
     AudioManager am;
-    MidiLevel Midilevel;
+    MidiLevel midiLevel;
     Level level;
-    Background background;
     Menu menu;
     public MyGame() : base(1366, 768, false)
     {
-        background = new Background();
         menu = new Menu();
         es = new EventSystem();
         am = new AudioManager();
-        score = new Score();
-        level = new MidiLevel("midi\\test2.mid", 800);
-        AudioManager.instance.StartSong("songs\\blastD.mp3");
-
-        background.SetOrigin(background.width / 2, background.height / 2);
-        background.SetXY(width / 2, height / 2);
-        AddChild(background);
-
-        musicDisk = new MusicDisk(0.55f);
-        AddChild(musicDisk);
-        musicDisk.SetXY(width / 2, height / 2 + 500);
+        EventSystem.instance.onLevelStart += StartLevel;
+        //score = new Score();
+        //level = new Level();    
+        
 
 
-        AddChild(Midilevel);
-        AddChild(score);
-        AddChild(level);
+        AddChild(menu);
+
+        //AddChild(score);
+        //AddChild(level);
 
     }
 
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
+
+    }
+    void StartLevel()
+    {
+        AudioManager.instance.StartSong("songs\\blastD.mp3");
+        midiLevel = new MidiLevel("midi\\test2.mid", 1200);
+        AddChild(midiLevel);
 
     }
 
