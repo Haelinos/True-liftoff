@@ -46,9 +46,7 @@ namespace GXPEngine
                             background.SetOrigin(background.width / 2, background.height / 2);
                             background.SetXY(game.width / 2, game.height / 2);
 
-                            MusicDisk musicDisk = new MusicDisk(0.55f);
-                            AddChild(musicDisk);
-                            musicDisk.SetXY(game.width / 2, game.height / 2 + 500);
+                            
 
                             break;
 

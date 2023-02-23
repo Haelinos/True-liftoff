@@ -79,13 +79,13 @@ namespace GXPEngine
 
         void StartGame() 
         {
+            EventSystem.instance.StartLevel();
             if (hasStarted == false)
             {
                 Level level = new Level();
                 AddChild(level);
                 hasStarted = true;
             }
-            EventSystem.instance.StartLevel();
         }
     }
 }

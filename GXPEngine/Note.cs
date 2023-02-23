@@ -14,21 +14,21 @@ namespace GXPEngine
 {
     public class Note : Sprite
     {
-        MusicDisk musicDisk;
         private int pitch;
         private float speed;
         float tempX;
         public Color noteColor;
+        int colorIndex;
         private float length = 0;
         private long noteEnd;
 
         public Note(int pitch, float speed, long noteEnd, int colorIndex) : base("sprites\\note.png")
         {
             //SetXY(600, -200);
-            musicDisk = new MusicDisk(speed);
             this.pitch = pitch;
             this.speed = speed;
             this.noteEnd = noteEnd;
+            this.colorIndex = colorIndex;
             noteColor = Color.White;
             switch (colorIndex)
             {
@@ -72,34 +72,23 @@ namespace GXPEngine
 
         void CollisionChecker() 
         {
-            //Console.WriteLine(rotation);
-            musicDisk.GetRotationIndex(0);
-            Mathf.CalculateAngleDeg(musicDisk.width / 2, musicDisk.width / 2, tempX, y);
-            //Console.WriteLine(tempX);
+            bool collidedWithDisc = false;
+            if (pitch == 1)
+            {
+				collidedWithDisc = y > 500;
+			}
+            else
+            {
+                collidedWithDisc = y > 620;
 
-            //if (DistanceTo(Mathf.CalculateAngleDeg(musicDisk.width / 2, musicDisk.width / 2, tempX, y) ))
-            //{
-
-            //}
-            //Console.WriteLine("({0}, {1}) -> ( {2}, {3})", musicDisk.x + musicDisk.width / 2, musicDisk.y +  musicDisk.height / 2, tempX, y);
-            //Console.WriteLine(Mathf.CalculateAngleDeg(musicDisk.x + musicDisk.width / 2, musicDisk.y + musicDisk.height / 2, tempX, y));
-
-            ////Console.WriteLine(pitch);
-            //if (pitch == 0 && musicDisk.rotationIndex == 0) 
-            //{
-            //    if () { }
-            //}
-            //if (pitch == 1 && musicDisk.rotationIndex == 1) 
-            //{
-            //    if () { }
-            //}
-            //if (pitch == 2 && musicDisk.rotationIndex == 2)
-            //{
-            //    if () { }
-            //}
-
-            // check for the right colour and check for right position of distanceto and the rotated circle
-
+            }
+			bool rightColor = MusicDisk.instance.GetRotationIndex(pitch, colorIndex);
+            if (collidedWithDisc && rightColor)
+            {
+                Score.instance.mainScore++;
+                Destroy();
+                EventSystem.instance.onUpdate -= NoteUpdate;
+            }
         }
     }
 }
