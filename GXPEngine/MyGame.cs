@@ -24,8 +24,8 @@ public class MyGame : Game
         es = new EventSystem();
         am = new AudioManager();
         score = new Score();
-        level = new MidiLevel("midi\\test2.mid", 0);
-        AudioManager.instance.StartSong("songs\\blast.mp3");
+        level = new MidiLevel("midi\\test2.mid", 800);
+        AudioManager.instance.StartSong("songs\\blastD.mp3");
 
         background.SetOrigin(background.width / 2, background.height / 2);
         background.SetXY(width / 2, height / 2);
