@@ -16,6 +16,7 @@ public class MyGame : Game
     Level level;
     Menu menu;
     Score score;
+    EndScreen endScreen;
     //bool menuSong;
     public MyGame() : base(1366, 768, false)
     {
@@ -23,7 +24,10 @@ public class MyGame : Game
         menu = new Menu();
         es = new EventSystem();
         am = new AudioManager();
+        endScreen= new EndScreen();
         EventSystem.instance.onLevelStart += StartLevel;
+        EventSystem.instance.onLevelEnd += EndLevel;
+
 
         AddChild(menu);
     }
@@ -31,7 +35,7 @@ public class MyGame : Game
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
-        Console.WriteLine(Score.instance.mainScore);
+        //Console.WriteLine(Score.instance.mainScore);
     }
     void StartLevel()
     {
@@ -39,6 +43,11 @@ public class MyGame : Game
         midiLevel = new MidiLevel("midi\\test2.mid", 800);
         AddChild(midiLevel);
 
+    }
+
+    void EndLevel()
+    {
+        AddChild(endScreen);
     }
 
     static void Main()                          // Main() is the first method that's called when the program is run

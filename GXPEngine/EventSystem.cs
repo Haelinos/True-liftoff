@@ -11,6 +11,7 @@ namespace GXPEngine.GXPEngine
 		public static EventSystem instance;
 		public event Action onUpdate;
 		public event Action onLevelStart;
+		public event Action onLevelEnd;
 		public EventSystem()
 		{
 			instance = this;
@@ -22,6 +23,10 @@ namespace GXPEngine.GXPEngine
 		public void StartLevel()
 		{
 			onLevelStart?.Invoke();
+		}
+		public void EndLevel()
+		{
+			onLevelEnd?.Invoke();
 		}
 	}
 }

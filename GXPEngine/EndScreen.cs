@@ -37,7 +37,7 @@ namespace GXPEngine.GXPEngine
         void Update()
         {
             menuDisk.rotation++;
-            
+
         }
     }
 }

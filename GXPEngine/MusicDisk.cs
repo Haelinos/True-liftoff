@@ -23,7 +23,7 @@ namespace GXPEngine
         public static MusicDisk instance;
 		public MusicDisk(float speed) : base("sprites\\disc.png", 1, 1)
         {
-            port.PortName = "COM13";
+            port.PortName = "COM14";
             port.BaudRate = 9600;
             port.RtsEnable = true;
             port.DtrEnable = true;

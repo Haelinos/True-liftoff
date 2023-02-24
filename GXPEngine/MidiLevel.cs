@@ -46,14 +46,13 @@ namespace GXPEngine
 				{
 					Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd, _notes.First().Color);
 					drawnNotes.Add(note);
-					AddChildAt(note, 110);
+					AddChildAt(note, -10);
 					_notes.RemoveAt(0);
 				}
 			}
 			catch (Exception ex)
 			{
-				AddChild(endScreen);
-				AddChild(hud);
+				EventSystem.instance.EndLevel();
 			}
 		}
 	}
