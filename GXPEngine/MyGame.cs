@@ -16,8 +16,7 @@ public class MyGame : Game
     Level level;
     Menu menu;
     Score score;
-
-    bool menuSong;
+    //bool menuSong;
     public MyGame() : base(1366, 768, false)
     {
         score = new Score();
@@ -32,7 +31,7 @@ public class MyGame : Game
     void Update()
     {
         EventSystem.instance.GlobalUpdate();
-        //Console.WriteLine(Score.instance.mainScore);
+        Console.WriteLine(Score.instance.mainScore);
     }
     void StartLevel()
     {

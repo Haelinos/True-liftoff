@@ -10,6 +10,8 @@ namespace GXPEngine
 {
 	internal class MidiLevel : GameObject
 	{
+		EndScreen endScreen;
+		HUDEnd hud;
 		public List<MidiNote> Notes { get { return _notes; } }
 		/// <summary>
 		/// use this to offset ends of all notes on the level
@@ -38,12 +40,20 @@ namespace GXPEngine
 		private void LevelUpdate()
 		{
 			//after beatmap is finished, game stops.
-			if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
+			try
 			{
-				Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd, _notes.First().Color);
-				drawnNotes.Add(note);
-				AddChildAt(note, 110);
-				_notes.RemoveAt(0);
+				if (AudioManager.instance.GetPosition() >= _notes.First().AbsoluteStart - GlobalOffset)
+				{
+					Note note = new Note(_notes.First().Pitch - firstNoteNumber, LevelSpeed, _notes.First().AbsoluteEnd, _notes.First().Color);
+					drawnNotes.Add(note);
+					AddChildAt(note, 110);
+					_notes.RemoveAt(0);
+				}
+			}
+			catch (Exception ex)
+			{
+				AddChild(endScreen);
+				AddChild(hud);
 			}
 		}
 	}

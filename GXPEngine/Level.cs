@@ -46,6 +46,11 @@ namespace GXPEngine
                             background.SetOrigin(background.width / 2, background.height / 2);
                             background.SetXY(game.width / 2, game.height / 2);
 
+                            HUD hud = new HUD();
+                            AddChild(hud);
+                            hud.x = col * SIZE;
+                            hud.y = row * SIZE;
+                            
                             
 
                             break;

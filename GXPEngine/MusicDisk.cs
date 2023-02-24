@@ -23,12 +23,12 @@ namespace GXPEngine
         public static MusicDisk instance;
 		public MusicDisk(float speed) : base("sprites\\disc.png", 1, 1)
         {
-            port.PortName = "COM5";
-            port.BaudRate = 9600;
-            port.RtsEnable = true;
-            port.DtrEnable = true;
-            port.Open();
-            port.NewLine = "\n";
+            //port.PortName = "COM5";
+            //port.BaudRate = 9600;
+            //port.RtsEnable = true;
+            //port.DtrEnable = true;
+            //port.Open();
+            //port.NewLine = "\n";
             this.speed = speed;
             SetOrigin(width / 2, height / 2);
             //scale = 0.6f;
@@ -40,16 +40,16 @@ namespace GXPEngine
         private void Update()
         {
 
-            string x = port.ReadExisting();
-            x = x.Split('\n').Last();
-            Console.WriteLine(x);
-            if (x == "" || x == "-")
-            {
-                return;
-            }
-            int.TryParse(x, out angle);
-            Console.WriteLine(angle);
-            rotation = angle * 7.5f;
+            //string x = port.ReadExisting();
+            //x = x.Split('\n').Last();
+            //Console.WriteLine(x);
+            //if (x == "" || x == "-")
+            //{
+            //    return;
+            //}
+            //int.TryParse(x, out angle);
+            //Console.WriteLine(angle);
+            //rotation = angle * 7.5f;
             if (Input.GetKey(Key.A))
             {
                 rotation--;
