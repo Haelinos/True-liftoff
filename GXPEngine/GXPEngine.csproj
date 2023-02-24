@@ -54,7 +54,7 @@
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="EventSystem.cs" />
-    <Compile Include="GXPEngine\EndScreen.cs" />
+    <Compile Include="EndScreen.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="HUDEnd.cs" />
     <Compile Include="Level.cs" />

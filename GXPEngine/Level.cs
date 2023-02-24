@@ -12,6 +12,7 @@ namespace GXPEngine
         const int WIDTH = 1;
         const int HEIGHT = 1;
         const int SIZE = 1;
+        int comboScore;
 
         List<Note> drawnNotes;
 
@@ -66,6 +67,19 @@ namespace GXPEngine
             {
                 LateDestroy();
             }
+        }
+
+        void IncreaseCombo()
+        {
+            if (Note.hit = true) 
+            {
+                if (Note.lastHit = true) 
+                {
+                    comboScore++;
+                }
+            
+            }
+            Console.WriteLine(comboScore);
         }
     }
 }
