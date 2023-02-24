@@ -36,7 +36,7 @@ namespace GXPEngine
 			GlobalOffset = offset;
 			EventSystem.instance.onUpdate += LevelUpdate;
 			LevelSpeed = 3f;
-		}
+		 }
 		private void LevelUpdate()
 		{
 			//after beatmap is finished, game stops.
