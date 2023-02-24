@@ -16,7 +16,6 @@ public class MyGame : Game
     Level level;
     Menu menu;
     Score score;
-    EndScreen endScreen;
     //bool menuSong;
     public MyGame() : base(1366, 768, false)
     {
@@ -24,11 +23,9 @@ public class MyGame : Game
         menu = new Menu();
         es = new EventSystem();
         am = new AudioManager();
-        endScreen = new EndScreen();
         EventSystem.instance.onLevelStart += StartLevel;
 
-        //AddChild(menu);
-        AddChild(endScreen);
+        AddChild(menu);
     }
 
     void Update()
