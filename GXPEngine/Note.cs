@@ -21,10 +21,11 @@ namespace GXPEngine
         int colorIndex;
         private float length = 0;
         private long noteEnd;
+        static public bool lastHit = false;
+        static public bool hit = false;
 
-        public Note(int pitch, float speed, long noteEnd, int colorIndex) : base("sprites\\note.png")
-        {
-            //SetXY(600, -200);
+        public Note(int pitch, float speed, long noteEnd, int colorIndex) : base("sprites\\notes\\note_white.png")
+        {        
             this.pitch = pitch;
             this.speed = speed;
             this.noteEnd = noteEnd;
@@ -88,6 +89,7 @@ namespace GXPEngine
                 Score.instance.mainScore++;
                 Destroy();
                 EventSystem.instance.onUpdate -= NoteUpdate;
+                lastHit = hit;
             }
         }
     }
